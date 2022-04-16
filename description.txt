@@ -55,5 +55,8 @@ Thanks:
 
 Update Log:
 ----------
+v1.0.3
+* Logo scaling, linked to GitHub
+----------
 v1.0
 * Initial Release

@@ -1,4 +1,4 @@
 displayName = Ultimate Scaling
 author = Slyk
-version = 1.0.1
-homepage = https://github.com/RootKit-Org/Ultimate-Scaling
+version = 1.0.3
+homepage = https://github.com/BlakeOrtiz/UltimateScaling
