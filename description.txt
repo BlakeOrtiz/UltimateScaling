@@ -31,23 +31,23 @@ Compatiblility:
 ================================
 
 Known Bugs/Issues:
-* Currently prefixed weapon values are calculated into the boosted DPS, and weapons with -damage prefixes may get boosted when they shouldn't. Furthermore, weapons with +damage prefixes may not get boosted to their full amount.
+* None, report any you find, please!
 
 ================================
 
 Planned Updates:
 * Config values to offer higher/lower boost options for those who want to customize how strong weapons can become.
 
-* Check for prefix damage values to help with boosting numbers more accurately.
+* Check for prefix damage values to help with boosting numbers more accurately (Damage has been fixed, weapon speed will be the next update).
 
 * Addition of materials that would need to be applied to weapons in order to offer scaling. (Would offer more gameplay rather than just passive scaling. May make this part of the Config so you can turn this feature on or off).
 
-* If you have any ideas feel free to let me know! (Discord: Slyk#0001)
+* If you have any ideas feel free to let me know!
 
 ================================
 
 Thanks:
-* direwolf420 and 眼鏡さん (Glasses-san) in the TmodLoader discord for helping pointing me in the right direction with some issues I ran into with item referencing and prefixes giving unwanted results
+* Anyone in the TModLoader discord that answered any of my questions
 
 * Starr for the mod logo
 
@@ -55,8 +55,8 @@ Thanks:
 
 Update Log:
 ----------
-v1.0.3
-* Logo scaling, linked to GitHub
+v1.1
+* Fixed prefixes stopping certain weapons from being boosted. Weapon damage now boosts along with its prefix values.
 ----------
 v1.0
 * Initial Release
