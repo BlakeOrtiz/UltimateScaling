@@ -55,8 +55,11 @@ Thanks:
 
 Update Log:
 ----------
+v1.1.1
+* Update to avoid scenarios where division by 0 was attempted
+----------
 v1.1
-* Fixed prefixes stopping certain weapons from being boosted. Weapon damage now boosts along with its prefix values.
+* Fixed prefixes stopping certain weapons from being boosted. Weapon damage now boosts along with its prefix values
 ----------
 v1.0
 * Initial Release

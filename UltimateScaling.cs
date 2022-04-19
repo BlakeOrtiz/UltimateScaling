@@ -165,7 +165,7 @@ namespace UltimateScaling
 			float dps = item.damage * (60 / item.useTime);
 
 			// Determine if weapon should show any boosted damage in tooltip line
-			if (ShowDamage.IsBoosted)
+			if (ShowDamage.IsBoosted && item.damage > 0)
 			{
 				dmg = (int)ShowDamage.BoostedDmg;
 				dps = (dmg + item.damage) * (60 / item.useTime);
