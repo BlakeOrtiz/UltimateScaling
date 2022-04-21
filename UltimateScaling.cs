@@ -78,7 +78,10 @@ namespace UltimateScaling
 		// Send the item to be checked if it can be boosted
 		public override void ModifyWeaponDamage(Item item, ref float add, ref float mult, ref float flat)
 		{
-			flat += BoostDmg(item);
+			if (item.damage > 0)
+			{
+				flat += BoostDmg(item);
+			}
 		}
 
 		// Get the Weapon's Damage before its prefix is applied
@@ -127,7 +130,6 @@ namespace UltimateScaling
 			int total = 0;
 			int max = bosses.Count;
 
-
 			// Get all bosses that have been downed and add to the 'total'
 			foreach (bool downed in bosses)
 			{
@@ -161,18 +163,18 @@ namespace UltimateScaling
 	{
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			int dmg = 0;
-			float dps = item.damage * (60 / item.useTime);
-
-			// Determine if weapon should show any boosted damage in tooltip line
-			if (ShowDamage.IsBoosted && item.damage > 0)
-			{
-				dmg = (int)ShowDamage.BoostedDmg;
-				dps = (dmg + item.damage) * (60 / item.useTime);
-			}
-			// Determine if an item is a weapon or not.
 			if (item.damage > 0)
 			{
+				int dmg = 0;
+				float dps = item.damage * (60 / item.useTime);
+
+				// Determine if weapon should show any boosted damage in tooltip line
+				if (ShowDamage.IsBoosted)
+				{
+					dmg = (int)ShowDamage.BoostedDmg;
+					dps = (dmg + item.damage) * (60 / item.useTime);
+				}
+
 				var curBoost = new TooltipLine(mod, "Boost", "[Boost] (+" + $"{dmg}) Damage");
 				var curDPS = new TooltipLine(mod, "DPS", "[DPS] " + $"{dps}/s");
 				tooltips.Add(curBoost);
@@ -180,5 +182,4 @@ namespace UltimateScaling
 			}
 		}
 	}
-
 }
