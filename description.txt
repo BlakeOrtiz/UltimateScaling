@@ -1,32 +1,16 @@
-Have you ever found a weapon and thought "I really like how this feels to use!" Yet, one or two bosses later, its damage output is very lacking.
+Have you ever found a weapon and thought "I really like how this feels!" Yet, one or two bosses later, its damage output is very lacking?
 
 Ultimate Scaling aims to provide your favorite weapons with damage boosts based on your world's progress (How many bosses have been killed) so you can use them longer!
 
 This won't eliminate needing to farm for stronger weapons completely, as doing so is a core aspect of gameplay, but it will give you that extra damage needed to use them just a bit longer!
 
-This inherintly buffs the Summoner class and will give the class a very nice damage buff.
-
-* Weapons that fall under the proper DPS amount scale up by 3x their original value after Moon Lord is defeated.
-
 ================================
 
 Compatiblility:
 
-[✓] All major content mods (Some of these mods will modify vanilla weapons, so some may scale differently, but they will still work based on those changed numbers!)
+[✓] All major content mods
 
-[?] Any mod that scales weapon damage based on world progression. There is a chance that similar mods may conflict and the scaling damage may not match results the player or author's of said mods were expecting.
-
-================================
-
-** Disclaimer **
-
-* Weapons post-Moon Lord will not get boosted as this is meant to boost pre-Moon Lord content. Anything post-Moon Lord is balanced by the specific Content mod(s) you're using and boosting anything past this would most likely cause issues with weapons doing insane amounts of damage.
-
-* This mod does not currently check every single weapon for perfect balance (that would be a huge undertaking). It instead calculates the DPS that a weapon does and uses that to add damage to it up to a value that is believed to be the world's current "DPS Level".
-
-* The "DPS Level" (more like a rough guess on what the current highest damaging weapons should be doing) is in place to avoid having weapons that were dropped by the world's current highest boss getting their damage boosted.
-
-* Certain weapons dropped by current bosses MAY have their damages boosted due to them being inferior to the more preferred drops, but after some tests, the damage output wasn't much of a difference (usually still lower) if you were already using the previous "best" weapon for your class. 
+[?] There is a chance that similar mods may conflict and the scaling damage may not match results the player or author's of said mods were expecting.
 
 ================================
 
@@ -38,8 +22,6 @@ Known Bugs/Issues:
 Planned Updates:
 * Config values to offer higher/lower boost options for those who want to customize how strong weapons can become.
 
-* Check for prefix damage values to help with boosting numbers more accurately (Damage has been fixed, weapon speed will be the next update).
-
 * Addition of materials that would need to be applied to weapons in order to offer scaling. (Would offer more gameplay rather than just passive scaling. May make this part of the Config so you can turn this feature on or off).
 
 * If you have any ideas feel free to let me know!
@@ -47,21 +29,22 @@ Planned Updates:
 ================================
 
 Thanks:
-* Anyone in the TModLoader discord that answered any of my questions
-
 * Starr for the mod logo
 
 ================================
 
 Update Log:
-__________
+----------
+V1.2.0
+* Weapon use time is now corrected before prefix to allow better boosting
+----------
 v1.1.2
 * Fixed issue where certain item's names were not popping up when hovering over them
 ----------
 v1.1.1
 * Update to avoid scenarios where division by 0 was attempted
 ----------
-v1.1
+v1.1.0
 * Fixed prefixes stopping certain weapons from being boosted. Weapon damage now boosts along with its prefix values
 ----------
 v1.0
