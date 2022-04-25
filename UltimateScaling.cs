@@ -11,7 +11,7 @@ namespace UltimateScaling
 	public class UltimateScaling : Mod
 	{
 		// Dictionary of all prefixes that increase or decrease damage
-		public static Dictionary<int, int> prefixes = new Dictionary<int, int>()
+		public static Dictionary<int, int> attackPrefixes = new Dictionary<int, int>()
 		{
 			{ PrefixID.Broken, -30 },
 			{ PrefixID.Annoying, -20 },
@@ -52,6 +52,37 @@ namespace UltimateScaling
 			{ PrefixID.Mythical, 15 },
 			{ PrefixID.Ruthless, 18 }
 		};
+
+		public static Dictionary<int, int> speedPrefixes = new Dictionary<int, int>()
+		{
+			{ PrefixID.Sluggish, -20 },
+			{ PrefixID.Bulky, -15 },
+			{ PrefixID.Lethargic, -15 },
+			{ PrefixID.Slow, -15 },
+			{ PrefixID.Annoying, -15 },
+			{ PrefixID.Unhappy, -10 },
+			{ PrefixID.Heavy, -10 },
+			{ PrefixID.Awkward, -10 },
+			{ PrefixID.Powerful, -10 },
+			{ PrefixID.Celestial, -10 },
+			{ PrefixID.Lazy, -8 },
+			{ PrefixID.Deadly, 5 },
+			{ PrefixID.Nimble, 5 },
+			{ PrefixID.Murderous, 6 },
+			{ PrefixID.Hasty, 10 },
+			{ PrefixID.Taboo, 10 },
+			{ PrefixID.Quick, 10 },
+			{ PrefixID.Deadly2, 10 },
+			{ PrefixID.Agile, 10 },
+			{ PrefixID.Nasty, 10 },
+			{ PrefixID.Manic, 10 },
+			{ PrefixID.Legendary, 10 },
+			{ PrefixID.Unreal, 10 },
+			{ PrefixID.Mythical, 10 },
+			{ PrefixID.Light, 15 },
+			{ PrefixID.Rapid, 15 },
+			{ PrefixID.Frenzying, 15 }
+		};
 	}
 
 	// Allows classes to save and share the variables that are made here
@@ -89,21 +120,42 @@ namespace UltimateScaling
 		{
 			if (item == null) return item.damage;
 
-			var prefixes = UltimateScaling.prefixes;
-			int id = item.prefix;
-			int value;
-			int adjust;
+			var attackPrefixes = UltimateScaling.attackPrefixes;
+			int attack = CheckPrefix(attackPrefixes, item);
 
-			if (prefixes.ContainsKey(id))
+			if (attack > 0)
 			{
-				bool hasValue = prefixes.TryGetValue(id, out value);
-				if (hasValue)
-				{
-					adjust = -value;
-					return item.damage + (item.damage * adjust) / 100;
-				}
+				return item.damage + ((item.damage * attack) / 100);
 			}
 			return item.damage;
+		}
+
+		private static int GetTrueSpeed(Item item)
+		{
+			var speedPrefixes = UltimateScaling.speedPrefixes;
+			int speed = CheckPrefix(speedPrefixes, item);
+
+			if (speed > 0)
+			{
+				return item.useTime + ((item.useTime * speed) / 100);
+			}
+			return item.useTime;
+		}
+
+		private static int CheckPrefix(dynamic prefix, Item item)
+		{
+			int id = item.prefix;
+			int value;
+
+			if (prefix.ContainsKey(id))
+			{
+				bool has = prefix.TryGetValue(id, out value);
+				if (has)
+				{
+					return -value;
+				}
+			}
+			return 0;
 		}
 
 		// Check the sent item to determine total boss kills and if it falls under DPS value to boost
@@ -146,7 +198,7 @@ namespace UltimateScaling
 			}
 
 			// Calculate the DPS after adding the boost and if it "outscales" the world progress
-			if ((GetTrueDmg(item) * boost) * (60 / item.useTime) >= total * total * total / 1.75)
+			if ((GetTrueDmg(item) * boost) * (60 / GetTrueSpeed(item) * boost) >= total * total * total / 1.75)
 			{
 				ShowDamage.IsBoosted = false;
 				return 0f;
